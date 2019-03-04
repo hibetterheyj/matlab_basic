@@ -1,8 +1,8 @@
-## Matlab, A Practical Introduction to Programming and Problem Solving快速阅读
+# Matlab, A Practical Introduction to Programming and Problem Solving快速阅读
 
-### Chap 1 Intro to Matlab
+## Chap 1 Intro to Matlab
 
-#### Note1
+## Note1
 
 - 名字最大长度63
 
@@ -139,7 +139,7 @@ deg2rad();rad2deg(); % 角度弧度转换
 
 - `which()`和`addpath()`的使用
 
-#### Ex1
+## Ex1
 
 > Chapter 1 - Exercises :  1, 6, **9**, 13, 15, 16, **22**, 23, 28, 29, 30
 >
@@ -168,9 +168,9 @@ ans =
 
 第一题不懂; 2.2251e-308
 
-### Char2 Vectors and Matrices
+## Char2 Vectors and Matrices
 
-#### Note2
+## Note2
 
 - 向量
 
@@ -254,7 +254,272 @@ numel(mat) % 返回所有元素个数
 - 好好使用`end`这个参数
 - 改变维度
 
-#### Ex2
+> 使用`reshape`,`fliplr`,`flipud`,`flip`,`rot90`
+
+```
+reshape(mat, row, column) % 按照列的方向开始重排
+fliplr(mat) % 直接左右翻转
+flipud(mat) % 上下翻转
+rot90((mat， <rot_times>) % 直接旋转九十度
+remat(mat, row, col) % 将原矩阵按照行列各复制几遍
+repelem(mat, row, col) % 将原矩阵各个部分按照行列各复制几个
+```
+
+- 分别对元素和对特定行列操作的内置函数
+
+```matlab
+abs(vec); sign(vec);
+
+min(mat);max(mat);sum(mat);prod(mat) % 默认对列进行操作，然后才是function(mat, 2)对行进行操作
+%累加系列操作
+cumprod();cumsum();%使用‘reverse'操作符
+diff() % 相互之间差距值
+>> vec1 = 1:4
+vec1 =
+     1     2     3     4
+>> diff(vec1)
+ans =
+     1     1     1
+```
+
+- 对某一行、列进行操作
+
+```
+ans(:,3) = [] % 对某一列直接删除
+ans(1,:) = 1:4 % 对第一行直接赋值
+```
+
+
+
+## Ex2
 
 > - Reading from chapter 2: Section 2.1 until the end of 2.1.4 ; Section 2.2; Summaries on pages 27 and 66
 > - Exercises from chapter 2: 4, 6, 10, 12, 17
+
+## Chap3 Intro to Matlab Programming
+
+### Note3
+
+#### 文件读写
+
+- 文件存放与载入
+
+```matlab
+save -mat test.mat
+load <filename>.mat
+load <filename>.mat <varibale1>
+```
+
+- 保存成txt
+
+```
+% 只能保存一个参数
+save -ascii test.txt a
+load test.txt
+C = load('test.txt')
+% 遇到多个参数
+A = [u v];
+save -ascii test2.txt A
+```
+
+- 基本操作
+
+```matlab
+[fileID, message] = fopen('filename','mode');
+fprintf;
+fclose(fileID);
+
+>> [fileID, message] = fopen('cry.txt', 'w');
+>> fprintf(fileID, 'Today is %2.1f degree.', [10.53]);
+>> fclose(fileID);
+% sprintf('Today is %2.1f degree.', [10.53]); 直接打印
+```
+
+- 用`dlmread`读`.csv`
+
+> 官方：<https://www.mathworks.com/help/matlab/ref/dlmread.html>
+
+可见MATALB 读写文本函数[csvwrite,csvread,dlmwrite,dlmread,textread,textscan](https://blog.csdn.net/skye1221/article/details/77750121?utm_source=blogxgwz4),dlmread函数用于从文档中读入数据，调用格式为:
+
+```
+M = dlmread(filename);
+M = dlmread(filename, delimiter); % 这里指定了分隔符。使用\t代表制表符tab分隔。
+M = dlmread(filename, delimiter, R, C);
+M = dlmread(filename, delimiter, range);
+
+>> M = [1	1.12	2.10	64
+25	1.489	1.18	152.4]
+M =
+    1.0000    1.1200    2.1000   64.0000
+   25.0000    1.4890    1.1800  152.4000
+>> dlmwrite('example.csv',M, 'delimiter', '\t')
+>> dlmread('example.csv')
+ans =
+    1.0000    1.1200    2.1000   64.0000
+   25.0000    1.4890    1.1800  152.4000
+```
+
+
+- 进阶操作
+
+> sections 3.3.2 and 9.1 from *Stormy Attaway*, Matlab, A Practical Introduction to Programming and Problem Solving.
+
+#### plot basic
+
+- 2D: graph, plot, figure
+
+```
+plot()的一些操作，包括变换颜色，线型
+legend('label1','label2',...) % 添加图例
+xlabel();
+saveas(gca, 'first.pdf', 'pdf');
+help saveas
+doc plot
+```
+
+- 3D
+
+```matlab
+% plot3D
+clear;clc;
+t = linspace(-2*pi, 2*pi, 200);
+plot3(t, sin(t), cos(t), 'b-');
+saveas(gca, 'first.jpg', 'jpg');
+hold on
+[X, Y] = meshgrid(x, y)
+grid on
+
+% surface
+clf;
+x = linspace(-1, 1, 101);
+y = linspace(-1, 1, 201);
+[X, Y] = meshgrid(x, y);
+Z = sin(2*pi*X).*cos(pi*Y);
+surf(X, Y, Z)
+```
+
+
+
+### Ex3
+
+> **Reading and complementary exercises**
+>
+> - Sections 3.2, 3.3, 3.4
+> - Summary on page 107
+> - Exercises from chapter 3 : 1, 2, 5, 6, 16, 24
+> - Sections 3.5.1 and 3.5. 2 and exercises 15, 16, 42
+> - Chapter 11 on *Advanced Plotting Techniques*
+
+- 基本文件读写题目
+
+```matlab
+%期待输出
+%The part weighs 14.57 kg.
+%Its volume is 0.09 m^3.
+%Its density is 163.34 kg/m^3.
+
+clear; close all; clc;
+
+% Definition of the values
+mass = 14.57;
+volume = 0.0892;
+
+% Opens the file
+fileID = fopen('mooc-3-2-2.txt','w');
+
+% Writes the texts in the file
+fprintf(fileID,'The part weighs %4.2f kg.\n',mass);
+fprintf(fileID,'Its volume is %4.2f m^3.\n',volume);
+fprintf(fileID,'Its density is %4.2f kg/m^3.\n',mass/volume);
+
+% Close the file
+fclose(fileID)
+```
+
+- For a text file containing tab separated data, which command will **read the data and create a matrix from the data** ? Use the function `dlmread`(not seen during the course but very useful) by **specifying the separator as tabs**. Read a file called `example.csv`. A very short example of such a file is shown below.
+
+```
+%基本数据
+%1	1.12	2.10	64
+%25	1.489	1.18	152.4
+dlmread('example.csv','\t')
+```
+
+- We shall create a figure showing a linear regression. The full script randomly generates data, the performs a regression on the data. The functions used for the regression have not been seen in the course, but information can be obtained by using the `help`. You must complete the code below such that it is fully functional and correct.(When providing the answers, **do not use semi-colons.**)
+
+```matlab
+clear; close all; clc;
+    
+% Randomly generate data
+x = 10*rand(50,1);
+y = x+(5*rand(50,1)-2);
+
+% linear regression
+fit = polyfit(x,y,1);
+
+% evaluation of the regression
+x_eval = 0:10;
+y_eval = polyval(fit,x_eval);
+
+%--------------------------%
+% figure creation
+figure;
+hold on;
+
+% Adds elements on the figure
+plot(x,y,'xr'); % Draw the points (defined in the variable x and y) using a red cross.
+plot(x_eval,y_eval,'g','LineWidth',2)
+
+% Figure styling
+xlim([-1,11]);
+ylim([-1,11]); % Specify that the y-axis runs from -1 to 11.
+xlabel('temps [s]');
+ylabel('position [m]'); % Define the title of the -axis as position [m]
+title('Position vs Speed'); % Define the title of the figure to be Position vs Speed
+hold off;
+```
+
+- The command `f = @(x,y) sin (sqrt (x.^2 + y.^2)) ./ sqrt (x.^2 + y.^2);` defines an anonymous (or lambda) function of the formula
+
+```matlab
+f = @(x,y) sin (sqrt (x.^2 + y.^2)) ./ sqrt (x.^2 + y.^2);
+rangeX = linspace(-8,8,41);
+rangeY = linspace(-8,8,21);
+[X, Y] = meshgrid(rangeX, rangeY);
+Z = f(X, Y);
+surf(X, Y, Z);
+```
+
+- We will produce a figure presenting a curve in space (3D). The exercise requires the creation of the points defining the curve and the manipulation of the figure itself. **Do not use spaces or semi-colons.**
+
+```matlab
+clear; close all; clc;
+% Generate data
+x=linspace(0,6*pi,100);
+y = x.*sin(x); % Create the vector y, by multiplying x by sin(x) 
+z=exp(x/10)-1;
+		  
+% Create figure with visualization
+plot3(x,y,z,'b','LineWidth',2) % Draw the parametric curve (defined by the variables x, y and z), with a blue line of thickness 2.
+hold on
+plot3(x,y,0*z,'kx')
+		  
+% Add axis labels
+xlabel('x')
+ylabel('x*sin(x)')
+zlabel('e^x/10-1'); % Define the z-axis title as e^x/10-1
+hold off % close the hold on called previously 
+grid on
+```
+
+
+
+
+
+### 小操作
+
+```
+edit script.m % 编辑脚本文件 
+type .csv/.txt % 直接输出在窗格当中
+```
+
