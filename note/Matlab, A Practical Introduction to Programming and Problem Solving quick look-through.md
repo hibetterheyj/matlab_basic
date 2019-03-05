@@ -1,8 +1,16 @@
+[TOC]
+
 # Matlab, A Practical Introduction to Programming and Problem Solving快速阅读
+
+> MOOC: [MATLAB and Octave for beginners](https://courses.edx.org/courses/course-v1:EPFLx+MatlabeOctaveBeginnersX+1T2017/course/)
+>
+> Boook: **Matlab, A Practical Introduction to Programming and Problem Solving**
+>
+> 当前进度: [here](https://courses.edx.org/courses/course-v1:EPFLx+MatlabeOctaveBeginnersX+1T2017/courseware/a03b33e868b3432fb04182f4949af06e/7096a990bae541a18191c05d50748e03/?child=first)
 
 ## Chap 1 Intro to Matlab
 
-## Note1
+### Note1
 
 - 名字最大长度63
 
@@ -134,12 +142,11 @@ sign() % 大于0取1，小于0取-1
 nthroot(64, 3) = 4; % 几阶根
 log();log2();log10();exp();
 deg2rad();rad2deg(); % 角度弧度转换
-
 ```
 
 - `which()`和`addpath()`的使用
 
-## Ex1
+### Ex1
 
 > Chapter 1 - Exercises :  1, 6, **9**, 13, 15, 16, **22**, 23, 28, 29, 30
 >
@@ -170,7 +177,7 @@ ans =
 
 ## Char2 Vectors and Matrices
 
-## Note2
+### Note2
 
 - 向量
 
@@ -289,9 +296,7 @@ ans(:,3) = [] % 对某一列直接删除
 ans(1,:) = 1:4 % 对第一行直接赋值
 ```
 
-
-
-## Ex2
+### Ex2
 
 > - Reading from chapter 2: Section 2.1 until the end of 2.1.4 ; Section 2.2; Summaries on pages 27 and 66
 > - Exercises from chapter 2: 4, 6, 10, 12, 17
@@ -300,7 +305,7 @@ ans(1,:) = 1:4 % 对第一行直接赋值
 
 ### Note3
 
-#### 文件读写
+#### File I/O 
 
 - 文件存放与载入
 
@@ -312,7 +317,7 @@ load <filename>.mat <varibale1>
 
 - 保存成txt
 
-```
+```matlab
 % 只能保存一个参数
 save -ascii test.txt a
 load test.txt
@@ -398,7 +403,35 @@ Z = sin(2*pi*X).*cos(pi*Y);
 surf(X, Y, Z)
 ```
 
+- 长注释
 
+```matlab
+%{
+so  
+long  
+for
+comment
+&}
+disp('HYJ')
+```
+
+- 输入
+
+```matlab
+rad = input('just input for fun!'，'s') % 输入的是一个字符，一般会有’s'转化为string 
+```
+
+- 输出`disp`和`fprintf`
+
+```
+disp() % 可以直接输入数字或者字符
+fprintf() % 则是可以格式化输出
+%d, %f, %c, %s
+%5d % 前面空五格
+%-5d % 后面空五格
+\t tab空格
+\n 新的一行
+```
 
 ### Ex3
 
@@ -512,9 +545,84 @@ hold off % close the hold on called previously
 grid on
 ```
 
+## Chap4
 
+### 4.1 functions
 
+```
+built-in
+.m
+lambda
+inline
+```
 
+- anonymous function
+
+```
+f = @(A,x) A*x;
+areaCircle=@(r)pi*r^2; %计算圆形面积
+f=@(a,b)@(x)a*x+b
+f23 = f(2,3)
+f23(1) = 5
+
+g = inline('A*x'), 'A'
+```
+
+#### 4.2 Conditional Execution
+
+```matlab
+if (condition1)
+	ecu1;
+elseif (condition2)
+	ecu2;
+else
+	ecu3;
+end
+
+%switch
+switch points
+	case1 {num1}
+		ecu1；
+	case2 {num2}
+		ecu2；
+	otherwise
+		ecu3；
+```
+
+#### 4.3 Loop
+
+```matlab
+% 循环
+while
+
+end
+
+for min:max
+
+end
+% 中间额外增加
+break
+continue
+```
+
+### Ex4
+
+> **Functions**
+>
+> - Sections 3.7, (6.1), 10.1, 10.2
+> - Exercises from chapter 3 : 24, 25, 29, 37
+> - Exercises from chapter 10 : 1, 2, 6, 7
+>
+> **Conditional execution**
+>
+> - Summary on page 136
+> - Exercises from chapter 4 : 1, 6, 10, 16, 27, 30, 31
+>
+> **Loops**
+>
+> - Summary on page 183
+> - Exercises from chapter 5 : 1, 6, 7, 8, 9, 13, 40
+> - Exercises from chapter 10 : 1, 2, 6, 7
 
 ### 小操作
 
