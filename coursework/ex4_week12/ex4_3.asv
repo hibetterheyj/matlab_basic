@@ -1,0 +1,18 @@
+function [sys,x0,str,ts,simStateCompliance] = ex4_3(t,x,u,flag,k,a1,a2,g,m)
+switch flag
+    case 0
+        [sys,x0,str,ts,simStateCompliance] = mdlInitializeSizes;
+    case 1
+        sys = mdlDerivates(t,x,u,k,a1,a2,g,m);
+    case 2
+        
+    case 3
+        
+    case 4
+        
+    case 9
+        
+    otherwise
+        error('wrong')
+end
+end

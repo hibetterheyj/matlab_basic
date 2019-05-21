@@ -1,4 +1,13 @@
+## ordinary
 coursework/archive/
-# vnote
+
+## vnote
 _v_recycle_bin/
 _vnote.json
+
+## simulink
+# Simulink code generation folders
+*/slprj/
+*/sccprj/
+# Simulink autosave extension
+*.autosave
