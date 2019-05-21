@@ -44,7 +44,7 @@ z =
 5/3
 ```
 
-- **请验证三角等式 $ \sin \phi_1 \cos \phi_2 - \cos \phi_1 \sin \phi_2 = \sin (\phi_1 - \phi_2) $**
+- **请验证三角等式 ![](http://latex.codecogs.com/gif.latex?\  \sin \phi_1 \cos \phi_2 - \cos \phi_1 \sin \phi_2 = \sin (\phi_1 - \phi_2))**
 
 代码
 
@@ -61,7 +61,7 @@ right =
 sin(phi_1 - phi_2)
 ```
 
-- **求级数和$ \sum\limits_{k = 1}^{\infty} [\dfrac{1}{(2k - 1)^2} \quad \dfrac{(-1)^k}{k}] $，保留20位有效位。**
+- **求级数和![](http://latex.codecogs.com/gif.latex?\ \sum\limits_{k = 1}^{\infty} [\dfrac{1}{(2k - 1)^2} \quad \dfrac{(-1)^k}{k}] )，保留20位有效位。**
 
 代码
 
@@ -80,7 +80,7 @@ ans =
 [ 1.2337005501361698274, -0.69314718055994530942]
 ```
 
-- **求解微分方程$ xy'' - 3y' = x^2 $其中，$ y'', y' $是关于x的导数，若设$ y(1) = 0, y(5) = 0 ​$，请求解。**
+- **求解微分方程$ xy'' - 3y' = x^2 $其中，$ y'', y' $是关于x的导数，若设$ y(1) = 0, y(5) = 0 $，请求解。**
 
 代码
 
@@ -122,4 +122,4 @@ end
 
 结果
 
-![ex2_6](.\ex2_6.png)
+![ex2_6](ex2_6.png)

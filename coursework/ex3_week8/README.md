@@ -1,8 +1,6 @@
-- **计算 $ \rm{arc}\sin x ​$。当$|x|<1​$时，**
+- **计算 ![](http://latex.codecogs.com/gif.latex?\ \rm{arc}\sin x)。当![](http://latex.codecogs.com/gif.latex?\ |x|<1)时，**
 
-$$
-\arcsin x \approx x+\frac{2 x^{3}}{4 \times 3}+\cdots+\frac{(2 n) !}{2^{2 n}(n !)^{2}} \frac{x^{2 n+1}}{(2 n+1)}
-$$
+![](http://latex.codecogs.com/gif.latex?\ \arcsin x \approx x+\frac{2 x^{3}}{4 \times 3}+\cdots+\frac{(2 n) !}{2^{2 n}(n !)^{2}} \frac{x^{2 n+1}}{(2 n+1)})
 
 代码
 
@@ -80,9 +78,9 @@ end
 ```
 
 - **在xy平面内选择区域[-8,8]×[-8,8],在同一图形窗口中绘制函数的mesh、surf、contour3图**
-  $$
-  z=\frac{\sin \sqrt{x^{2}+y^{2}}}{\sqrt{x^{2}+y^{2}}}
-  $$
+  
+
+![](http://latex.codecogs.com/gif.latex?\ z=\frac{\sin \sqrt{x^{2}+y^{2}}}{\sqrt{x^{2}+y^{2}}})
 
 代码
 
@@ -102,7 +100,7 @@ contour3(X,Y,Z)
 
 结果
 
-![ex3_3](C:\Users\HYJ\Documents\MATLAB\matlab_basic\coursework\ex3_week8\ex3_3.png)
+![ex3_3](ex3_3.png)
 
 - **在同一坐标中绘制如下分段函数的曲线，x的范围由键盘输入。不同分段曲线的颜色、线型和点标不同（自定义），并对各个分段曲线在适当位置分别进行标注x>0, x<=0**
 
@@ -143,7 +141,7 @@ end
 
 结果
 
-![ex3_4](C:\Users\HYJ\Documents\MATLAB\matlab_basic\coursework\ex3_week8\ex3_4.png)
+![ex3_4](ex3_4.png)
 
 - **产生一个6×6的魔方矩阵A，根据用户自定义，从中取出一个子矩阵，如果出错，显示出错原因，并取出整个矩阵。对取出的矩阵进行改写：将大于等于15的元素求平方根，小于15的求平方。**
 
@@ -181,4 +179,8 @@ ans =
     5.9161    1.0000
     9.0000    5.6569
 ```
+
+
+
+
 
