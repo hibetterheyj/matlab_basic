@@ -1,4 +1,4 @@
-### Coursework repo for *Matlab and engineering applications*
+### Coursework repo for *Matlab and engineering applications* (optional)
 
 > 190524 Replace `.pdf` with `.html` for readability
 

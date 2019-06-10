@@ -1,4 +1,6 @@
-- **计算 ![](http://latex.codecogs.com/gif.latex?\ \rm{arc}\sin x)。当![](http://latex.codecogs.com/gif.latex?\ |x|<1)时，**
+### ex3_week8
+
+- 计算 ![](http://latex.codecogs.com/gif.latex?\ \rm{arc}\sin x)。当![](http://latex.codecogs.com/gif.latex?\ |x|<1)时，**
 
 ![](http://latex.codecogs.com/gif.latex?\ \arcsin x \approx x+\frac{2 x^{3}}{4 \times 3}+\cdots+\frac{(2 n) !}{2^{2 n}(n !)^{2}} \frac{x^{2 n+1}}{(2 n+1)})
 
